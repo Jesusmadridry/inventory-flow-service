@@ -17,7 +17,7 @@ println "Using Gradle version: $gradle.gradleVersion"
 println "Compiling with: "+ Jvm.current()
 
 ext {
-    jarNumber = '1.0' // ENG-3893: Utilities Crm Bridge Service
+    jarNumber = '1.0'
 
     workingBranch = project.hasProperty('src_branch')? project.property('src_branch'):  gitBranch()
     releaseDate =  ZonedDateTime.now(ZoneId.of("America/New_York")).format(DateTimeFormatter.ofPattern("yyyy-MM-dd-HH:mm:ss"))
@@ -28,7 +28,6 @@ ext {
     //Dependencies numbers
     springBootVersion = '3.2.1'
     springDependencyManagementVersion = '1.1.4'
-    springCloudVersion = '2023.0.0'
     springOpenAPIVersion = '2.3.0'
 
     productCommonVersion= '1.0.0-SNAPSHOT'
@@ -43,7 +42,6 @@ ext {
     mockitoVersion = '4.12'
     mockWebserverVersion = '4.9.0'
     awailityVersion = '4.2.0'
-    springAddonsVersion = '7.6.11'
 }
 
 println "Working BRANCH: ${workingBranch}"
@@ -56,13 +54,11 @@ println "productCommonVersion = $productCommonVersion"
 
 println "=========== Third party library's versions ============="
 println "springBootVersion = $springBootVersion"
-println "springCloudVersion = $springCloudVersion"
 println "springOpenAPIVersion = $springOpenAPIVersion"
 println "mapstructVersion = $mapstructVersion"
 println "buckect4JVersion = $buckect4JVersion"
 println "lombokMapstructVersion = $lombokMapstructVersion"
 println "mockitoVersion = $mockitoVersion"
 println "mockWebserverVersion = $mockWebserverVersion"
-println "springAddonsVersion = $springAddonsVersion"
 
 

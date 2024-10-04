@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @RequiredArgsConstructor
-public class InventoryConfig {
+public class InventoryFlowConfig {
     private final InventoryFlowRepository inventoryFlowRepository;
     private final ProductRepository productRepository;
     private final InventoryFlowMapper inventoryFlowMapper;

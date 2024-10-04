@@ -25,9 +25,9 @@ public class InventoryFlowService {
                                     var inventoryFlow = inventoryFlowMapper.fromProductFlow(productFlow);
                                     var newInventoryFlow = inventoryFlowRepository.save(inventoryFlow);
                                     return Mono.just(newInventoryFlow.getId());
-                                }).orElseGet(() -> Mono.error(new InventoryFlowServiceException("There was an error trying to register the product flow")));
+                                }).orElseGet(() -> Mono.error(new InventoryFlowServiceException("There was an error trying to find the product code related to the Product Flow")));
                     } catch (Exception e) {
-                        return Mono.error(new InventoryFlowServiceException("There was an error trying to find the Code related to the Product Flow"));
+                        return Mono.error(new InventoryFlowServiceException("There was an error trying to register the Product Flow"));
                     }
                 })
                 .switchIfEmpty(Mono.error(new InventoryFlowServiceException("Product Flow must not be NULL to be registered")));

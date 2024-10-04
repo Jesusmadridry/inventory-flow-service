@@ -1,32 +1,22 @@
 package com.inventory.persist;
 
-import com.inventory.persist.common.Category;
-import com.inventory.persist.common.CommonEntity;
 import jakarta.persistence.*;
-import lombok.*;
-import lombok.experimental.SuperBuilder;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Immutable;
 
 @Entity
-@EqualsAndHashCode(callSuper=false)
-@ToString(callSuper = true)
-@SuperBuilder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "product", schema = "company_inventory")
-public class ProductEntity extends CommonEntity {
+@Immutable
+public class ProductEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false, unique = true)
     private String code;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="product_type_id")
-    private Category categoryType;
-    private String name;
-    private Double price;
-    private String measurement;
-    private String companyOwner;
 }

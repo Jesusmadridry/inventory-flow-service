@@ -7,6 +7,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import com.inventory.model.Flow;
+import org.hibernate.envers.Audited;
 
 
 @Entity
@@ -16,6 +17,7 @@ import com.inventory.model.Flow;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Audited
 public class InventoryFlow extends CommonEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,0 +1,49 @@
+application:
+  env: LOCAL-${user.name}
+
+inv:
+  db-host: localhost
+  default-schema: company_inventory
+  api:
+    frequency:
+      default-frequency:
+        request-path: "^/.+$"
+        limit: 10000
+        period: 1h
+
+spring:
+  datasource:
+    username: postgres
+    password: postgres
+
+  jpa:
+    show-sql: true
+
+management:
+  endpoints:
+    enabled-by-default: true
+    jmx:
+      exposure:
+        include: "*"
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    env:
+      show-values: always
+    configprops:
+      show-values: always
+    quartz:
+      show-values: always
+
+crm:
+  client-properties:
+    zoho:
+      base-url: https://sandbox.zohoapis.com/crm/v7
+      retries: 3
+      initial-delay: 20
+      connection-timeout: 180
+mch-utilities:
+  schedule:
+    cron-map:
+      utilities-crm-bridge-cron: "0 0/2 * * * ?"

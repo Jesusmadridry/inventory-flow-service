@@ -1,0 +1,45 @@
+application:
+  env: PROD
+
+inv:
+  db-host: prodHost
+
+spring:
+  datasource:
+    username: ${POSTGRES_USR}
+    password: ${POSTGRES_PWD}
+
+  cloud:
+    config:
+      enabled: true
+      label: latest
+      username: mch_conf-clt
+  rabbitmq:
+    host: rabbitHost
+    port: 5671
+    username: ${RABBIT_MQ_USR}
+    password: ${RABBIT_MQ_PWD}
+    ssl:
+      enabled: true
+
+management:
+  endpoints:
+    enabled-by-default: false
+    jmx:
+      exposure:
+        include: health,refresh
+    web:
+      exposure:
+        include: health,refresh
+  endpoint:
+    health:
+      show-details: always
+      enabled: true
+    refresh:
+      enabled: true
+
+springdoc:
+  swagger-ui:
+    enabled: false
+  api-docs:
+    enabled: false

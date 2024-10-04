@@ -7,7 +7,7 @@
     <root level="INFO">
         <appender-ref ref="CONSOLE" />
     </root>
-    <logger name="inv" level="DEBUG" additivity="false">
+    <logger name="com" level="DEBUG" additivity="false">
         <appender-ref ref="CONSOLE" />
     </logger>
 </configuration>

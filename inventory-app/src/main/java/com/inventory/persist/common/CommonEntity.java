@@ -1,4 +1,4 @@
-package inv.persist.common;
+package com.inventory.persist.common;
 
 import jakarta.persistence.MappedSuperclass;
 import lombok.AllArgsConstructor;

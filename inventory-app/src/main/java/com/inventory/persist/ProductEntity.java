@@ -1,7 +1,7 @@
-package inv.persist;
+package com.inventory.persist;
 
-import inv.persist.common.Category;
-import inv.persist.common.CommonEntity;
+import com.inventory.persist.common.Category;
+import com.inventory.persist.common.CommonEntity;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -18,6 +18,9 @@ public class ProductEntity extends CommonEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false, unique = true)
+    private String code;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="product_type_id")

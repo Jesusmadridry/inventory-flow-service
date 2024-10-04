@@ -1,11 +1,13 @@
-package inv.persist;
+package com.inventory.persist;
 
 
-import inv.persist.common.CommonEntity;
+import com.inventory.persist.common.CommonEntity;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-import model.Flow;
+
+import com.inventory.model.Flow;
+
 
 @Entity
 @EqualsAndHashCode(callSuper=false)
@@ -18,8 +20,11 @@ public class InventoryFlow extends CommonEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String productId;
+    private String productCode;
+    private Long quantity;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 5)
     private Flow flow;
+
 }

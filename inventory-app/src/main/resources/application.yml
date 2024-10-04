@@ -1,9 +1,6 @@
 application:
   name: inventory-flow-service
-  env: DEFAULT-${user.name}`
-
-  server:
-    address: mch.portal.com
+  env: DEFAULT
 
 logging:
   level:
@@ -21,28 +18,22 @@ management:
     port: 8093
   endpoints:
     web:
-      base-path: /utilities-crm-bridge-mgmt
+      base-path: /inventory-flow-mgmt
 
 spring:
-  profiles:
-    default: default
-  application:
-    name: ${application.name}
   cloud:
-    config:
-      enabled: false
     stream:
       output-bindings: report_output
       default-binder: rabbit
       bindings:
         report_output:
-          destination: ${inv.report.subscriber-topic}
+          destination: \${inventory.report.subscriber-topic}
           content-type: "application/json"
       rabbit:
         bindings:
           report_output:
             producer:
-              auto-bind-dlq: true
+#              auto-bind-dlq: true
 
   rabbitmq:
     host: localhost
@@ -51,7 +42,7 @@ spring:
     password: rabbitmqPWD
 
   datasource:
-    url: jdbc:postgresql://${inv.db-host}:5432/mch?currentSchema=${inv.default-schema}&stringtype=unspecified
+    url: jdbc:postgresql://\${inventory.db-host}:5432/db_data?currentSchema=\${inventory.default-schema}&stringtype=unspecified
     driver-class-name: org.postgresql.Driver
     hikari.maximum-pool-size: 1
   jpa:
@@ -73,7 +64,7 @@ spring:
     serialization:
       write-dates-as-timestamps: false
 
-inv:
+inventory:
   report:
     subscriber-topic: inventory-flow-report
 springdoc:

@@ -1,15 +1,17 @@
 application:
-  env: LOCAL-${user.name}
+  env: LOCAL
 
-inv:
+inventory:
   db-host: localhost
+  report:
+    cron: "0 0/2 * * * ?"
   default-schema: company_inventory
-  api:
-    frequency:
-      default-frequency:
-        request-path: "^/.+$"
-        limit: 10000
-        period: 1h
+#  api:
+#    frequency:
+#      default-frequency:
+#        request-path: "^/.+$"
+#        limit: 10000
+#        period: 1h
 
 spring:
   datasource:
@@ -37,15 +39,3 @@ management:
       show-values: always
     quartz:
       show-values: always
-
-crm:
-  client-properties:
-    zoho:
-      base-url: https://sandbox.zohoapis.com/crm/v7
-      retries: 3
-      initial-delay: 20
-      connection-timeout: 180
-mch-utilities:
-  schedule:
-    cron-map:
-      utilities-crm-bridge-cron: "0 0/2 * * * ?"

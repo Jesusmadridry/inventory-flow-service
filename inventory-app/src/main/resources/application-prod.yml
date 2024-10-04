@@ -8,7 +8,9 @@ spring:
   datasource:
     username: ${POSTGRES_USR}
     password: ${POSTGRES_PWD}
-
+  jpa:
+    hibernate:
+      ddl-auto: none
   cloud:
     config:
       enabled: true
@@ -21,6 +23,7 @@ spring:
     password: ${RABBIT_MQ_PWD}
     ssl:
       enabled: true
+
 
 management:
   endpoints:

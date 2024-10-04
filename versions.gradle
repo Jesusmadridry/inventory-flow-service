@@ -51,7 +51,7 @@ println "Working BRANCH: ${workingBranch}"
 println "=========== Artifact's versions ====================="
 println "jarVersion = $jarVersion"
 
-println "=========== MCH library's versions ====================="
+println "=========== library's versions ====================="
 println "productCommonVersion = $productCommonVersion"
 
 println "=========== Third party library's versions ============="

@@ -1,7 +1,7 @@
 application:
   env: PROD
 
-inv:
+inventory:
   db-host: prodHost
 
 spring:
@@ -11,11 +11,6 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
-  cloud:
-    config:
-      enabled: true
-      label: latest
-      username: mch_conf-clt
   rabbitmq:
     host: rabbitHost
     port: 5671
